@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/2022/02/25/%E4%B8%80%E7%AF%87%E5%8E%BB%E9%99%A4%E5%B0%8F%E7%B1%B3%E7%94%B5%E8%A7%86%E5%B9%BF%E5%91%8A%E7%9A%84%E9%80%9A%E7%94%A8%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>title: 初来乍到<br>date: 2021-04-13 09:23:51<br>categories: 笔记<br>tags: [笔记,命令,去广告,碎碎念,电视]</p>
+<p>这个脚本删除了小米电视的自带桌面，并替换成了Emotn UI，如果你不喜欢Emotn UI，请将EmotnUI.apk替换成别的桌面文件。<br>需要注意的是，请务必确定自己的电视的Android 5.0以上。<br>Android 4.4.*版本的Android不能安装这个桌面，会导致不能开机。你可以把EmotnUI.apk换成当贝桌面，可以在4.4.*系统上安装。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>初来乍到</title>
     <url>/2021/04/13/%E5%88%9D%E6%9D%A5%E4%B9%8D%E5%88%B0/</url>
     <content><![CDATA[<p>断断续续折腾了几天，博客终于上线使用了，以后便安心码字。<br>存在的问题还比较多，慢慢想办法解决。</p>
@@ -45,7 +52,7 @@
 <li><p>hexo g -d的时候也许会报错，大概率是授权文件不正确导致的，可以先输入一次授权信息：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;邮箱&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>输入ssh <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>可以测试与github的连接性，挂个代理会更快一些，但是代理的配置可能不主动让终端走代理，这时可以把代理设置为全局，而不是分流。</p>
+<li><p>输入ssh <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#111;&#x6d;</a>可以测试与github的连接性，挂个代理会更快一些，但是代理的配置可能不主动让终端走代理，这时可以把代理设置为全局，而不是分流。</p>
 </li>
 <li><p>每个参数的冒号是英文的，冒号后面务必要加一个空格，不然生成页面会报错。</p>
 </li>
