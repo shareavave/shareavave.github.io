@@ -30,7 +30,7 @@
 <meta property="og:description" content="简单记录一下过年在家精简家里的小米电视的思路，毕竟我是个外行，所以这个操作应该很适合像我一样的小白用户。我希望达到的效果是删除开机广告、去除主页上所有的付费电影和综艺节目推广、删掉锁屏壁纸和不需要的视频软件、删掉所有需要开会员的功能和内容。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-20T06:30:40.000Z">
-<meta property="article:modified_time" content="2022-02-25T08:42:23.648Z">
+<meta property="article:modified_time" content="2022-02-25T08:45:53.814Z">
 <meta property="article:author" content="Avave">
 <meta property="article:tag" content="小米,电视,广告,adb,命令">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-25 16:42:23" itemprop="dateModified" datetime="2022-02-25T16:42:23+08:00">2022-02-25</time>
+                <time title="修改时间：2022-02-25 16:45:53" itemprop="dateModified" datetime="2022-02-25T16:45:53+08:00">2022-02-25</time>
               </span>
 
           
@@ -218,6 +218,8 @@
 <p>思路是这样的：<br>当然要删掉小米电视自带的桌面，推荐太多了，眼花缭乱，没有重点，不仅长辈找不到自己想看的东西，我们自己也找不到，唾弃，并删掉。<br>删掉桌面之后安装一个简单明了的桌面APP，并把它设置为默认。<br>这个新桌面应该要<em>足够简单，操作逻辑要符合思维惯性，学习成本要尽可能的低，并且要有一定程度上的自定义性，功能也不能有短板，最重要的是，颜值要足够高。</em>几番筛选，Emotn UI是唯一符合要求的桌面。</p>
 <p>删掉桌面之后顺便删掉不必要的播放器和组件，我自己是不看，但是如果你喜欢看优酷爱奇艺之类的也可以自己安装一个，安装好了之后和手机一样在电视上点击对应的图标启动即可，它们不会在主页上推荐内容，也没必要在不用它们的时候偷偷启动。</p>
 <p><strong>要有可恢复性：</strong>如果没操作好或者以后需要送修之类的情况，能很方便的恢复到小米系统本身的样子，而不需要繁琐的刷机操作。<br>如果你不喜欢删减之后的结果，只需要在<strong>“设置-关于-还原”</strong>中还原电视系统的设置并重启电视即可。</p>
+<hr>
+<p>正文开始↓</p>
 <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1.让电视和操作的电脑处于同一个路由器的网络下，不能跨路由器或连接桥接路由器和信号放大器。不限制连接方式，WiFi或者有线网络都可以，但是避免出错，尽量别同时使用全局代理。</p>
 <p>2.确保电视的Android版本是5.0或者以上，这个很重要，因为Emotn UI只能安装在5.0+的系统上，如果删除了旧的桌面而Emotn UI却没安装成功，会导致不能顺利开机。</p>
 <p>3.将电视的MIUI TV版本升级到最新版，打开<strong>“小米电视设置”</strong>，点击<strong>“关于”</strong>，然后点一下<strong>“MIUI TV版本”</strong>看是否有更新，顺便把小面的<strong>“智能更新”</strong>设置为<strong>“关闭”</strong>。</p>
