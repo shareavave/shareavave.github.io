@@ -97,7 +97,7 @@
 <li><p>hexo g -d的时候也许会报错，大概率是授权文件不正确导致的，可以先输入一次授权信息：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;邮箱&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>输入ssh <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a>可以测试与github的连接性，挂个代理会更快一些，但是代理的配置可能不主动让终端走代理，这时可以把代理设置为全局，而不是分流。</p>
+<li><p>输入ssh <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#109;</a>可以测试与github的连接性，挂个代理会更快一些，但是代理的配置可能不主动让终端走代理，这时可以把代理设置为全局，而不是分流。</p>
 </li>
 <li><p>每个参数的冒号是英文的，冒号后面务必要加一个空格，不然生成页面会报错。</p>
 </li>
