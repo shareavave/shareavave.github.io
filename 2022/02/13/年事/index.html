@@ -19,25 +19,25 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.yuantai.fun","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="不思蜀元宵节过完，发现应该回去工作了。但最近在老家待着什么都不想做，也提不起兴趣回省城。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="年事">
-<meta property="og:url" content="http://example.com/2022/02/13/%E5%B9%B4%E4%BA%8B/index.html">
+<meta property="og:url" content="http://blog.yuantai.fun/2022/02/13/%E5%B9%B4%E4%BA%8B/index.html">
 <meta property="og:site_name" content="许家大院">
 <meta property="og:description" content="不思蜀元宵节过完，发现应该回去工作了。但最近在老家待着什么都不想做，也提不起兴趣回省城。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-13T07:44:22.000Z">
-<meta property="article:modified_time" content="2022-02-23T09:31:02.443Z">
+<meta property="article:modified_time" content="2022-02-25T06:10:07.942Z">
 <meta property="article:author" content="Avave">
 <meta property="article:tag" content="碎碎念">
 <meta property="article:tag" content="日常">
 <meta property="article:tag" content="往事">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/02/13/%E5%B9%B4%E4%BA%8B/">
+<link rel="canonical" href="http://blog.yuantai.fun/2022/02/13/%E5%B9%B4%E4%BA%8B/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<script src="/lib/fireworks.js"></script>
+
   <title>年事 | 许家大院</title>
   
 
@@ -110,7 +110,6 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -122,61 +121,29 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-fa fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fa fa-tags"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-fa fa-th"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fa fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-fa fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
 
 </div>
     </header>
@@ -200,12 +167,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/13/%E5%B9%B4%E4%BA%8B/">
+    <link itemprop="mainEntityOfPage" href="http://blog.yuantai.fun/2022/02/13/%E5%B9%B4%E4%BA%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Avave">
-      <meta itemprop="description" content="Avave's blog">
+      <meta itemprop="description" content="Avave's Blog">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -230,7 +197,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-23 17:31:02" itemprop="dateModified" datetime="2022-02-23T17:31:02+08:00">2022-02-23</time>
+                <time title="修改时间：2022-02-25 14:10:07" itemprop="dateModified" datetime="2022-02-25T14:10:07+08:00">2022-02-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,16 +222,23 @@
       
         <h3 id="不思蜀"><a href="#不思蜀" class="headerlink" title="不思蜀"></a>不思蜀</h3><p>元宵节过完，发现应该回去工作了。<br>但最近在老家待着什么都不想做，也提不起兴趣回省城。</p>
 <p><escape><span id="more"></span></escape></p>
-<p>春节这半月以来断断续续的在下雨，屋子的周边有稀泥路，显得有些脏，于是也不愿意出门。房子里多数时候只有我自己，就连牲口些也在远处的田埂上，听不到叫声。夜里只有屋后竹林窸窸窣窣的声音和时不时传来的鸟叫，但也没感到寂寞，城市里很吵，总有些声音让人静不下心，而这里恰得安宁。<br>早上得早起，天刚亮，起来煮红薯菜叶玉米和米糠给牲口吃。我爸在家里养了七只鸡，十二只鸭子和三只鹅，一头猪，并不算多，但手脚其实不少。弄完之后我也偷它们半个红薯吃，就当早餐了，然后回楼上继续睡觉。<br>这几天很冷，若是早起，更是冷得浸人，不过坐在灶前烧起了火开始煮东西便也感到很惬意。</p>
-<h3 id="搬家"><a href="#搬家" class="headerlink" title="搬家"></a>搬家</h3><p>这个年过得很安静，镇里不许放烟花爆竹是一方面，扫墓的人便少了很多，夜晚也只看到三两家散漫的烟火，往年初一弥漫一整天的稠雾浓云，今年十一点多便渐渐散了。<br>另一个原因是今年从镇上搬到乡下来住了，虽说镇上的屋子也还在，而且老家距离镇上也只有五六分钟车程，但这对我来说也是一个很大的决定，这个决定打破了许多往日里的细节。我拆掉了镇上的电脑，打包了多年的衣服和从小用到大的镜子扳全都搬回了乡下，然后特地和三五个朋友说今年我回老家了所以除夕不能一起跨年，我们初一再见。<br>但是初一下起了雨。<br>和以往的很多次一样，这可能是一种我潜意识里的预感，我说不清道理，但明白往年一起吃零食跨年的常规我留不住，总有一天我会一个人坐在电脑前独自跨年，而且似乎就应该在今年。<br>小佩和九曲在一起了，他俩去年秋天才和我说。我认识他们各自的时间比他们认识彼此的时间要长很多，他们经常在一起玩，所以当时听到这个消息稍微有点惊讶，但并不意外，以后写一篇他们的事情。<br>他们在一起之后和他们处在一个空间里我会觉得不太自在，分别和他们各自相处时我倒是觉得没什么变化，但和他们俩一起看电影我总觉得周边弥漫着什么东西。<br>当然，他们在一起并不是我决定搬回老家的契机，只能算是一个磁场，很大程度上影响了我潜意识里的决定而已。</p>
-<p>街上这个屋子是我爸弄的一个工作间，只有十多米见方，楼下是木工门市，楼上算是我的闺房，卧室、洗手间、厨房和餐厅都有，但不大，三四个人也还会得过来。得益于从我初中开始这个屋子里便没有家长，而且这里有电脑和电视，在过去很多个跨年夜里能和几个朋友轻松惬意的这里吃零食，喝小酒，看春晚，一起跨年，凌晨的时候再一起去欢欢家找他和他爸妈一起去烧子时香。<br>初中时候这里算是大家的秘密基地，因为那时候我一个人住，和他们家里相比这里会感觉十分自在。九曲家开的超市，我在家的时候他会带些零食饮料过来一起吃，出发前给我发消息，问有几个人在。我们偶尔也会去买一些，欢欢是不是也会带些饮料或者街边小吃过来，她还喜欢顺路租两三张光盘，而小佩便空手就过来了，只在门口问一句我爸：“小郁在家吗？”，或是不见人在门市上，自己走楼梯就上来了。</p>
-<p>关于镇子里房子的事情以后想起了再细说。乡下这个房子，我十年有余年没回来住了，虽说房子里一直有住人，而且每逢年过节的时候我也会回来吃饭，但十多年来不曾留下睡过觉，都去镇上的房间里过夜。</p>
-<p>大年初二的时候，兰湘路过门口，对我感叹说：“有没有感觉到今年空气好些，我都没觉得不舒服。”<br>她对空气很敏感，甚至刻意避免靠近马路，在疫情之前也是戴着口罩才能进城。平日里村上来往车辆很少，倒也没事。过年的时候大家都开着车回来了，便让村里的单行道变得很挤。车太多了她也会经常咳嗽、流鼻血之类，吃了止咳糖浆也没什么效果。不出门倒是好一些，但作为生活在这里的人，过年一直在家里不出去见人也不行。</p>
-<p>我问她要去哪里，请她进屋坐一会儿。<br>她说先不了，晚些再来，王家的老爷子昨晚去世了，她带了点钱去看看情况，问什么时候成福，好去帮忙。<br>见我靠在场门上没接话，她慢慢的指着西方说：“是观音桥头右边的那个王家，青瓦楼房，坝子门口有个大石磨那儿。前年国庆我们路过那家，当时你还说去偷个柚子的那儿。”，我连忙点头说喔原来是他们家，我想起来了。</p>
-<h3 id="光环"><a href="#光环" class="headerlink" title="光环"></a>光环</h3><p>她总这样和我说镇子里的人，桥头路口，山坡下池塘边，什么样的房子，或是从哪里的第几个坡第几个弯的左边右边。<br>我不认识镇上的人，甚至不眼熟，连老家房子周边的两户人家都不知道名字，高中之后我走在镇子上也是带着耳机低着头，不认人，我不理他们，他们也不理我。爸常说这样不礼貌，但那时的我就是把仇恨都平均到了镇子的每一个人身上，没兴趣对他们表现礼貌。<br>兰湘的高中在自贡，而我在泸州，假期里能见面，因为距离不算远，便也去彼此的学校碰面过几次。我高二的时候渐渐意识到这个细节，兰湘似乎知道我不喜欢这里的人，那年在我第一次问她“你说的这个明天要结婚的光进哥哥住在哪里？”之后，她楞里一下，之后便渐渐的不和我说起这里某个人的名字或身份，有一种“算啦，你也不用去记他们”的意味。<br>我也吃她这一套，多数时候我对不上人，想到了之后恍然大悟的说“哦哦是他们家”，或是本来就知道，便说“嗯嗯，我知道他们，你接着说他们怎么了”。<br>大学去南京念书，学费挺贵，我便想着要去申请贫困补助，打电话去南京那边问了流程，说做出表格要村长村支书以及县教育处写推荐书签字。想到县城教育处的推荐书倒是小问题，我成绩并不差，提前打电话问清楚，然后坐车去一趟，找对应的人跟着流程办理下来就好。但村里的事情我却有些犯难，便开口问兰湘我们村的村支书是谁，问她认识么？<br>她那时候在站在窗台边削橙子，没接话，在屋里渡了两步，转身对我笑着说：“他一般在老街茶馆里，住在场口卖鸡鸭那一家的对面楼上，你应该没见过他。把资料给我，我去让他帮忙写吧，就说你已经去外地的学校了不能亲自回来。”<br>那是第一次需要找镇子里的人帮忙，她稍加思索便替我挡下来了，至今还记得当时她身后闪亮的光环，而后的许多日子里她在我的记忆里都是那个形象。<br>下午她便骑自行车载着一件牛奶去找镇子里找村支书了，我说和她一起去，她说这样就露馅了你不能去。明明比我小半岁，那一刻却感觉她更像一个姐姐。</p>
-<h3 id="回乡"><a href="#回乡" class="headerlink" title="回乡"></a>回乡</h3><p>兰湘家离我家算不上近，现在走路也得二十多分钟，往些年的路不好走，感觉更远，却意外的和她关系很好，那是很小时候的事了，都还没到念书的年纪。到二年级结束，一场变故，我跟着爸去了浙江，不知这一去便过了好些年。<br>回来的那天我深夜才到镇上，第二天她便来找我，站在门口张望，看到我，才走进院子，只说：“我听闽叔叔说你们回来了。”<br>那时候她说得轻描淡写，仿佛这些年我只是出门度过了一个暑假而已，而我今天回来了，她也还在。<br>那个寒假有些别扭，镇子里许多人和事都需要去适应。我爸忙前忙后，说以后不打算去外地打工了，要把房子弄得漂亮些，翻新院子，疏通阳沟，重修灶头，新打水井，还让我去渡口买鱼，邀请了几个他的朋友来家里喝酒。第二年开学，我回到了镇里的学校，和兰湘一个班，她还是和我走得很近，仿佛和之前一样。<br>那时候她总问我在浙江做些什么，有什么有趣的事情，我说在城乡结合部住着小平房，宁波很大，但是房子很小，三个人挤在一起，也没有院子，没有阳台，也不能养花，告诉她浙江的话我听不懂，和他们要说普通话等等。<br>那些年几乎和她去过镇子周遭所有的地方，走过所有的田坎和山路，远一些的地方走了两三个小时去玩儿，傍晚天黑了借路边住户的电话让她哥来接我们。<br>那些日子我一直铭记于心，并以此为生，这可能也是她能很具体的和我描述一个我不知道的地方的原因。</p>
-<h3 id="人间"><a href="#人间" class="headerlink" title="人间"></a>人间</h3><p>想了一会儿，我说：“你是打算去帮忙么？”<br>“嗯，去慰问一下。他的孙子和我们的年纪差不多呢，年前才和邻县的一户姑娘订了婚。这些事情操办起来很繁琐的，去看看有没有能帮忙的地方。”她眺望着那边，又缓缓的说：“村里的习惯嘛，去帮忙切菜洗碗，我也没别的事情。爸一早就过去了。”</p>
-<p>却也没帮上忙，过去没多久便回来了。<br>到我家门前特地停了一下，将手臂上的白布摘下来卷了卷，揣进衣兜里，然后推门进院子，家里养的狗便很熟络的迎上了她。</p>
+<p>春节这半月一直断断续续的在下雨，屋子的周边有稀泥路，显得有些脏，也就不愿意出门。房子里多数时候只有我一个人，牲口些也在远处的田埂上，屋子里听不到叫声，只有屋后竹林窸窸窣窣的声音和时不时传来的鸟叫。也没让我感到寂寞，城市里很吵，静不下心，而这里能得安宁。<br>每天早上得早起，天刚亮，起来煮红薯、菜叶、玉米和米糠给牲口吃。我爸在家里养了七只鸡，十二只鸭子和三只鹅，一头猪，数量并不多，但手脚却不少。弄完之后我也偷它们半个红薯吃，就当早餐了，然后回楼上继续睡觉。<br>这几天很冷，若是早起，更是冷得浸人，坐在灶前烧起了火开始煮东西，火升起来了便感到很惬意的回暖。</p>
+<h3 id="搬家"><a href="#搬家" class="headerlink" title="搬家"></a>搬家</h3><p>这个年过得很安静，镇里不许放烟花爆竹是一个原因，使得扫墓的人少了很多，大年晚上也只看到三两家没什么底气的烟花。往年初一弥漫一整天的稠雾浓云，今年十一点多便渐渐散了。<br>却也没太阳。</p>
+<p>另一个原因是今年从镇上搬到乡下来住了，虽说镇上的屋子也还在，而且老家距离镇上也只有五六分钟车程，但这对我来说却是一个很大的决定，这个决定打破了许多往日里的细节设定。我独自拆掉了镇上房间里的电脑，打包了多年的衣服、布偶、玩具和以前的书本，全都搬了回去。然后假装顺口一提的和三五个朋友说起“今年我回老家了所以除夕不能一起跨年，我们初一再见。”<br>但是初一下起了雨，出不了门。</p>
+<p>和以往的很多次一样，这可能也是一种我潜意识里的预感，说不清道理，只想着应该这样做。往年一起吃零食跨年的日常我想怎么挽留也留不住，总有一天我会一个人坐在电脑前独自跨年的，而且似乎就在今年。这种感觉就像<br>小佩和九曲在一起了，他俩去年秋天才和我说。<br>我认识他们各自的时间比他们认识彼此的时间要长很多，它俩经常在一起，所以当时听到这个消息稍微有点惊讶，却也并不意外，以后写一篇他们的事情。<br>他们在一起之后和他们处在一个空间里我会觉得不太自在，分别和他们各自相处时倒是觉得没什么变化，但和他们俩一起看电影我总觉得周边弥漫着什么东西。<br>当然，他们在一起并不是我决定搬回老家的契机，只能算是一个磁场，很大程度上影响了我潜意识里的决定。</p>
+<p>街上这个屋子是我爸弄的一个工作间，只有十多米见方，楼下是木工门市，楼上算是我的专属房间，虽说不大，但卧室、洗手间、厨房和餐厅都有，三四个朋友也还会得过来。从我初中起这个屋里便没有家长，而且这里有电脑和电视，在过去很多个跨年夜里能和几个朋友轻松惬意的这里吃零食，喝小酒，看春晚，一起跨年，凌晨的时候再一起去欢欢家找他和他爸妈一起去烧子时香。<br>初中时候这里算是大家的秘密基地，因为那时候我一个人住，和他们家里相比这里会更自在。<br>九曲家开的超市，我在家的时候他会带些零食饮料过来一起吃，出发前给我发消息，问有几个人在。我们偶尔也会去买一些，欢欢时不时也会带些饮料或者街边小吃过来，还喜欢顺路租两三张光盘。小佩则空手就过来了，只在门口问一句我爸：“小郁在家吗？”，或是不见人在门市上，自己走楼梯就上来了。</p>
+<blockquote>
+<p>城市并不属于他们，城市甚至不属于任何人，美好的回忆、痛苦的回忆，这些都属于人自己的，而不属于城市，城市并不会为一条街道的消失而哭泣，会为之流泪的，只有人而已。</p>
+<p>他们想守住的，想留住的，是自己记忆里的城市，是让自己玩闹、成长，让自己跌倒、热血的那个城市，他们想守住的，是自己的痕迹。</p>
+<p>——山行、叶子  · 评《恶童》</p>
+</blockquote>
+<p>关于镇子里房子的事情以后想起了再细说，乡下这个房子，我十年有余年没回来住了，虽说房子里一直有住人，而且每逢年过节的时候我也会回来吃饭，但这么多年以来都去镇上的房间里过夜，不曾留下睡过觉。</p>
+<p>大年初二，兰湘路过门口，对我感叹说：“有没有感觉到今年空气好些，我都没觉得不舒服。”<br>她对空气很敏感，刻意避免靠近马路，在疫情之前也是戴着口罩才能进城。平日里村上来往车辆很少，倒也没事。一过年大家都把车回来了，村里的单行道变得很挤。车太多了她也会经常咳嗽、流鼻血之类，吃了止咳糖浆，却也没什么效果。不出门倒好一些，但作为生活在这里的人，过年一直在家里不出去见人也不行。</p>
+<p>我问她要去哪里，请她进屋坐一会儿。<br>她说先不了，晚些再来，王家的老爷子昨晚去世了，她带了点钱去看看情况，问什么时候成福，好去帮忙。<br>见我靠在场门上没接话，她慢慢的指着西方说：“是观音桥头右边的那个王家，青瓦楼房，坝子门口有个大石磨那儿。前年国庆我们路过那家，当时你还说去偷个柚子的那儿。”，我连忙点头说：“喔原来是他们家，我想起来了。”</p>
+<h3 id="光环"><a href="#光环" class="headerlink" title="光环"></a>光环</h3><p>她总这样和我说镇子里的人，桥头路口，山坡下池塘边，什么样的房子，或是从哪里的第几个坡第几个弯的左边右边。<br>我不认识镇上的人，甚至不眼熟，连老家房子周边的两户人家都不知道名字，高中之后我走在镇子上也都戴着耳机低着头，不认人。我不理他们，他们也不理我，爸常说这样不礼貌，但那时的我就是把仇恨都平均到了镇子的每一个人身上，没兴趣对他们表现礼貌。<br>兰湘的高中在自贡，而我在泸州，假期里能见面，因为距离不算远，也去彼此的学校碰面过几次。我高二的时候渐渐意识到这个细节，兰湘知道我不喜欢这里的人，那年在我第一次问她“你说的这个明天要结婚的光进哥哥住在哪里？”之后，她楞里一下，之后便渐渐的不和我说起这里某个人的名字或身份，有一种“算啦，你也不用去记他们”的意味。<br>我也吃她这一套，多数时候我对不上人，想到了之后就恍然大悟的说“哦是他们家”，或是本来就知道，便说“嗯嗯，我知道他们，他们怎么了”。<br>大学去南京念书，学费挺贵，我便想着要去申请贫困补助，打电话去南京那边问了流程，说做出表格要村长村支书以及县教育处写推荐书签字。想到县城教育处的推荐书倒是小问题，我成绩并不差，提前打电话问清楚，然后坐车去一趟，找对应的人跟着流程办理下来就好。但村里的事情我却有些犯难，便开口问兰湘我们村的村支书是谁，问她认识么？<br>她那时候在站在窗台边削橙子，拿着水果刀在屋里渡了两步，转身对我笑着说：“他一般在老街茶馆里，住在场口卖鸡鸭那一家的对面楼上，你应该没见过他。把资料给我，我去让他帮忙写吧，就说你已经去外地的学校了不能亲自回来。”<br>那是第一次需要找镇子里的人帮忙，她稍加思索便替我挡下来了，至今还记得当时她身后闪亮的光环，而后的许多日子里她在我的记忆里都是那个形象。<br>下午她便骑自行车载着一件牛奶去找镇子里找村支书了，我说和她一起去，她说这样就露馅了你不能去。明明比我小半岁，那一刻却感觉她更像一个姐姐。</p>
+<h3 id="回乡"><a href="#回乡" class="headerlink" title="回乡"></a>回乡</h3><p>兰湘家离我家算不上近，现在走路也得二十多分钟，往些年的路不好走，感觉更远，却意外的和她关系很好。那是很小时候的事了，都还没到念书的年纪。到二年级结束，一场变故，我跟着爸去了浙江，不知这一去便过了好些年。<br>回来的那天我深夜才到镇上，第二天一大早她便来我家找我，站在门口张望，看到我，才走进院子，只说：“我听闽叔叔说你们回来了。”<br>那时候她说得轻描淡写，仿佛这些年我只是出门度过了一个暑假而已，而我今天回来了，她也还在。<br>那年寒假有些别扭，镇子里许多人和事需要我去适应，但也只是一个小孩子，跟着玩儿了半个月也都融入了。我爸忙前忙后，说以后不去外地打工了，要把房子弄得漂亮些。翻新院子，疏通阳沟，重修灶头，新打水井，还让我去渡口买鱼，邀请了几个他的朋友来家里喝酒。第二年开学，我回到了镇里的学校，和兰湘一个班，她还是和我走得很近，仿佛和之前一样。<br>那时候她总问我在浙江做些什么，有什么有趣的事情，我说在城乡结合部住着小平房，宁波很大，但是房子很小，三个人挤在一起，也没有院子，没有阳台，种不了橙子树，也养不了花，告诉她浙江的话我听不懂，和他们要说普通话等等。<br>之后的那些年几乎和她去了镇子周遭所有的地方，走过所有的田坎和山路，远一些的地方走了两三个小时去玩儿，傍晚天黑了借路旁人家的电话打过去让她哥来接我们。<br>那些日子我一直铭记于心，并照亮了许多往后的灰暗岁月，这可能也是她能很具体的和我描述一个我不知道的地方的原因。</p>
+<h3 id="人间"><a href="#人间" class="headerlink" title="人间"></a>人间</h3><p>想了一会儿，问她说：“你是打算去帮忙么？”<br>“嗯，去慰问一下。这些事情操办起来很繁琐的，去看看有没有能帮忙的地方。”她眺望着那边，又缓缓的说：“爸一早就过去了，村里的习惯嘛，去帮忙切菜洗碗，我也没别的事情。”</p>
+<p>却也没帮上忙，过去没多久便回来了。<br>到我家门前特地停了一下，将手臂上的白布摘下来卷了卷，揣进衣兜里，然后推门进院子，家里养的狗听到她走进门的声音便很熟络的迎了上去。。</p>
 <hr>
 
     </div>
@@ -272,23 +246,6 @@
     
     
     
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Avave
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://example.com/2022/02/13/%E5%B9%B4%E4%BA%8B/" title="年事">http://example.com/2022/02/13/年事/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
 
     <div>
       
@@ -383,8 +340,10 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Avave"
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Avave</p>
-  <div class="site-description" itemprop="description">Avave's blog</div>
+  <div class="site-description" itemprop="description">Avave's Blog</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -405,8 +364,13 @@
       </div>
   </nav>
 </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shareavave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shareavave" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:@shareavave@gmail.com" title="E-Mail → mailto:@shareavave@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
   </div>
 
 
@@ -445,7 +409,7 @@
   &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
-    <i class="fa fa-fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Avave</span>
 </div>
@@ -506,10 +470,6 @@ setInterval("createtime()",250);
   
 
 
-
-
-  
-<script src="/js/local-search.js"></script>
 
 
 
