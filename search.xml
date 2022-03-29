@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2022年了，应该怎么安装MIXBOX呢</title>
+    <url>/2022/03/27/2022%E5%B9%B4%E4%BA%86%EF%BC%8C%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%AE%89%E8%A3%85MIXBOX%E5%91%A2/</url>
+    <content><![CDATA[<p>一算发现家里的路由器明年就十岁了，某居然还在不温不冷的用着，嗯哼，某果然是一个恋旧的人。</p>
+<p><escape><span id="more"></span></escape></p>
+<p>之前wingyue为一系列的路由器制作的MIXBOX工具箱功能全面且安装简单，深得人心，对于新人来说有一个自动安装软件并部署的工具箱感觉十分友好，MIXBOX的项目地址在<a href="https://github.com/wingyue/mixbox">这里</a>，原文说得蛮详细。</p>
+<p>但是随着Monlor.coding.net和jsdelivr的域名连不上了，导致这个工具不能安装，github也由于各种原因路由器连不上，让这个工具箱安装起来很麻烦了。</p>
+<p>某天深夜里，春民们为路由器连接不上Github的问题提供了简单的结局思路：</p>
+<h3 id="简单说来："><a href="#简单说来：" class="headerlink" title="简单说来："></a>简单说来：</h3><p>是让电脑的代理软件开启<strong>LAN局域网代理共享</strong>功能，然后让路由器连接电脑的代理，这就让路由器能愉快用代理访问Github了：</p>
+<p>1.在电脑中利用Clash或SSR开启局域网代理，勾选Clash的“Allow LAN”功能或开启SSR的“允许来自局域网的访问”功能。<br>2.在已经连接路由器的SSH上输入下面的命令让路由器连接电脑的代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=本机电脑的IP:代理端口</span><br><span class="line">export https_proxy=本机电脑的IP:代理端口</span><br></pre></td></tr></table></figure>
+
+<p>然后输入Github源的一键安装命令即可正常安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -kfsSl https://raw.githubusercontent.com/monlor/mbfiles/master/install_github.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>完成。</p>
+<hr>
+<h3 id="展开说说："><a href="#展开说说：" class="headerlink" title="展开说说："></a>展开说说：</h3><p>可能有像我一样的新人没看明白具体怎么操作，于是展开图文说说具体怎么操作，顺便也测试一下借来的图床速度如何。</p>
+<h4 id="0-开始之前需要准备："><a href="#0-开始之前需要准备：" class="headerlink" title="0.开始之前需要准备："></a>0.开始之前需要准备：</h4><ol>
+<li>一台电脑，Windows或iMac都可。</li>
+<li>一个梯子软件，SSR或Clash都行，推荐Clash。</li>
+<li>一个能用的梯子节点。</li>
+<li>一个已经开启SSH，或曾经成功安装过MIXBOX的路由器。</li>
+</ol>
+<p>具体操作如下：</p>
+<h4 id="1-在电脑上打开代理"><a href="#1-在电脑上打开代理" class="headerlink" title="1.在电脑上打开代理"></a>1.在电脑上打开代理</h4><p>本文以Clash举例，打开Clash，先确保你的电脑能正常访问<a href="http://www.google.com/">www.google.com</a> ，然后在Clash的控制面板上的General选项卡中勾选 Allow LAN。如图：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kagq.jpg" alt="0kagq.jpg" style="zoom:80%;" />
+
+<p>勾选过后能看到页面上显示电脑的IP地址，比如我的显示的就是<strong>“192.168.31.170 以太网”</strong>，如果没看清可以把鼠标移动到<strong>选项开关</strong>那一行，便会持续显示IP。</p>
+<p>如果是用的SSR，则 <strong>右键点击纸飞机图标 - 选项设置… - 本地代理 - 勾选“允许来自局域网的连接”</strong>并记住对应的<strong>本地端口</strong>即可。</p>
+<h4 id="2-用命令行工具连接路由器"><a href="#2-用命令行工具连接路由器" class="headerlink" title="2.用命令行工具连接路由器"></a>2.用命令行工具连接路由器</h4><p>打开SSH工具，如果有自己喜欢就用喜欢的工具，若是没有喜欢的就与本文一样用Windows自带的终端：</p>
+<p>Windows键+R键打开运行，输入CMD回车打开终端窗口。</p>
+<p>然后在终端输入<code>ssh root@192.168.31.1</code> 回车，连接你的路由器(这是默小米路由器默认的IP地址，若是修改过网段就改为修改过的路由器地址)。<br>此时需要输入root的密码，自己去查，连接成功了应该是这样的：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0k3BG.jpg" alt="0k3BG.jpg" style="zoom:80%;" />
+
+<p>输入密码的时候页面不会显示输入的密码或***，确定自己输入正确之后按回车就可以，显示ARE U OK表示验证通过，让再输一次密码表示之前输入的密码不正确。</p>
+<h4 id="3-让路由器连接电脑的代理"><a href="#3-让路由器连接电脑的代理" class="headerlink" title="3.让路由器连接电脑的代理"></a>3.让路由器连接电脑的代理</h4><p>输入下面的命令让你的路由器连接上你的电脑的代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=本机电脑的IP:代理端口</span><br><span class="line">export https_proxy=本机电脑的IP:代理端口</span><br></pre></td></tr></table></figure>
+
+<p>(IP地址替换为操作的电脑的IP地址，端口替换为Clash中设置的<strong>Port</strong>或SSR中的<strong>本地端口</strong>，冒号是<strong>英文的冒号</strong>，两行可以一起复制，粘贴完成之后按一下回车，终端不会提醒你任何内容。)</p>
+<p>如果没有报错，此时路由器已经连接上代理了，输入Github上的MIXBOX一键安装地址试试：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -kfsSl https://raw.githubusercontent.com/monlor/mbfiles/master/install_github.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>粘贴上去之后的窗口内容应该是类似这样的：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0k6eX.jpg" alt="0k6eX.jpg" style="zoom:80%;" />
+
+
+
+
+
+<h4 id="4-开始安装MIXBOX"><a href="#4-开始安装MIXBOX" class="headerlink" title="4.开始安装MIXBOX"></a>4.开始安装MIXBOX</h4><p>上一步命令粘贴之后按回车。</p>
+<p>发现可以安装了：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kzwS.jpg" alt="0kzwS.jpg" style="zoom:80%;" />
+
+<p>输入安装路径<code>/etc</code>回车试试。<br>然后输入用户路径回车。<br>注意提示，如果是硬盘版，用户文件目录设置为<code>/userdisk/data</code><br>如果不是硬盘版就设置为<code>/extdisks/sda*</code></p>
+<p>*如果安装完成后输入MIXBOX打不开工具箱，一般是这个地址填错了。</p>
+<h4 id="5-安装完成"><a href="#5-安装完成" class="headerlink" title="5.安装完成"></a>5.安装完成</h4><p>嗯，安装成功，输入<code>mixbox</code>打开工具箱看看应用能不能加载：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kelV.jpg" alt="0kelV.jpg" style="zoom:80%;" />
+
+<p>没问题&#x3D;￣ω￣&#x3D;</p>
+<h4 id="6-安装一个Aria2试试看、"><a href="#6-安装一个Aria2试试看、" class="headerlink" title="6.安装一个Aria2试试看、"></a>6.安装一个Aria2试试看、</h4><img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kQ1b.jpg" alt="0kQ1b.jpg" style="zoom:80%;" />
+
+<p>没问题，就这样。</p>
+<h4 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h4><p>每次安装新软件都需要连接Clash的Allow LAN，弄好了记得把Allow LAN关掉。<br>路由器里全局SSR能解决这个问题，不过是不安全的，十分不推荐这样做。</p>
+<p>本文编辑和岁岁，感谢春里人帮忙解决这个遗留了大半年的问题。</p>
+]]></content>
+      <tags>
+        <tag>路由器</tag>
+        <tag>MIXBOX</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>初来乍到</title>
     <url>/2021/04/13/%E5%88%9D%E6%9D%A5%E4%B9%8D%E5%88%B0/</url>
     <content><![CDATA[<p>断断续续折腾了几天，博客终于上线使用了，以后便安心码字。<br>存在的问题还比较多，慢慢想办法解决。</p>
@@ -45,7 +116,7 @@
 <li><p>hexo g -d的时候也许会报错，大概率是授权文件不正确导致的，可以先输入一次授权信息：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;邮箱&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>输入ssh <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#x6d;">&#103;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#x6d;</a>可以测试与github的连接性，挂个代理会更快一些，但是代理的配置可能不主动让终端走代理，这时可以把代理设置为全局，而不是分流。</p>
+<li><p>输入ssh <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>可以测试与github的连接性，挂个代理会更快一些，但是代理的配置可能不主动让终端走代理，这时可以把代理设置为全局，而不是分流。</p>
 </li>
 <li><p>每个参数的冒号是英文的，冒号后面务必要加一个空格，不然生成页面会报错。</p>
 </li>
@@ -72,7 +143,7 @@
         <tag>笔记</tag>
         <tag>命令</tag>
         <tag>Hexo</tag>
-        <tag>碎碎念</tag>
+        <tag>碎碎念]</tag>
       </tags>
   </entry>
   <entry>
@@ -106,6 +177,7 @@
         <tag>碎碎念</tag>
         <tag>日常</tag>
         <tag>往事</tag>
+        <tag>胡思乱想</tag>
       </tags>
   </entry>
   <entry>
@@ -158,76 +230,12 @@
 <p>文章中提到的文件在：<a href="https://pan.baidu.com/s/11Gfr2svD5AV6j4wiSPZEDg?pwd=dusx">这里</a>  提取码：dusx</p>
 ]]></content>
       <tags>
-        <tag>电视,广告,adb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2022年了，应该怎么安装MIXBOX呢</title>
-    <url>/2022/03/27/2022%E5%B9%B4%E4%BA%86%EF%BC%8C%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%AE%89%E8%A3%85MIXBOX%E5%91%A2/</url>
-    <content><![CDATA[<p>一算发现家里的路由器明年就十岁了，某居然还在不温不冷的用着，嗯哼，某果然是一个恋旧的人。</p>
-<p><escape><span id="more"></span></escape></p>
-<p>之前wingyue为一系列的路由器制作的MIXBOX工具箱功能全面且安装简单，深得人心，对于新人来说有一个自动安装软件并部署的工具箱感觉十分友好，MIXBOX的项目地址在<a href="https://github.com/wingyue/mixbox">这里</a>，原文说得蛮详细。</p>
-<p>但是随着Monlor.coding.net和jsdelivr的域名连不上了，导致这个工具不能安装，github也由于各种原因路由器连不上，让这个工具箱安装起来很麻烦了。</p>
-<p>某天深夜里，春民们为路由器连接不上Github的问题提供了简单的结局思路：</p>
-<h3 id="简单说来："><a href="#简单说来：" class="headerlink" title="简单说来："></a>简单说来：</h3><p>是让电脑的代理软件开启<strong>LAN局域网代理共享</strong>功能，然后让路由器连接电脑的代理，这就让路由器能愉快用代理访问Github了：</p>
-<p>1.在电脑中利用Clash或SSR开启局域网代理，勾选Clash的“Allow LAN”功能或开启SSR的“允许来自局域网的访问”功能。<br>2.在已经连接路由器的SSH上输入下面的命令让路由器连接电脑的代理：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=本机电脑的IP:代理端口</span><br><span class="line">export https_proxy=本机电脑的IP:代理端口</span><br></pre></td></tr></table></figure>
-
-<p>然后输入Github源的一键安装命令即可正常安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -kfsSl https://raw.githubusercontent.com/monlor/mbfiles/master/install_github.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
-
-<p>完成。</p>
-<hr>
-<h3 id="展开说说："><a href="#展开说说：" class="headerlink" title="展开说说："></a>展开说说：</h3><p>可能有像我一样的新人没看明白具体怎么操作，于是展开图文说说具体怎么操作，顺便也测试一下借来的图床速度如何。</p>
-<h4 id="0-开始之前需要准备："><a href="#0-开始之前需要准备：" class="headerlink" title="0.开始之前需要准备："></a>0.开始之前需要准备：</h4><ol>
-<li>一台电脑，Windows或iMac都可。</li>
-<li>一个梯子软件，SSR或Clash都行，推荐Clash。</li>
-<li>一个能用的梯子节点。</li>
-<li>一个已经开启SSH，或曾经成功安装过MIXBOX的路由器。</li>
-</ol>
-<p>具体操作如下：</p>
-<h4 id="1-在电脑上打开代理"><a href="#1-在电脑上打开代理" class="headerlink" title="1.在电脑上打开代理"></a>1.在电脑上打开代理</h4><p>本文以Clash举例，打开Clash，先确保你的电脑能正常访问<a href="http://www.google.com,然后在clash的控制面板上的general选项卡中勾选/">www.google.com，然后在Clash的控制面板上的General选项卡中勾选</a> Allow LAN。如图：</p>
-<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kagq.jpg" alt="0kagq.jpg" style="zoom:80%;" />
-
-<p>勾选过后能看到页面上显示电脑的IP地址，比如我的显示的就是<strong>“192.168.31.170 以太网”</strong>，如果没看清可以把鼠标移动到<strong>选项开关</strong>那一行，便会持续显示IP。</p>
-<p>如果是用的SSR，则 <strong>右键点击纸飞机图标 - 选项设置… - 本地代理 - 勾选“允许来自局域网的连接”</strong>并记住对应的<strong>本地端口</strong>即可。</p>
-<h4 id="2-用命令行工具连接路由器"><a href="#2-用命令行工具连接路由器" class="headerlink" title="2.用命令行工具连接路由器"></a>2.用命令行工具连接路由器</h4><p>打开SSH工具，如果有自己喜欢就用喜欢的工具，若是没有喜欢的就与本文一样用Windows自带的终端：Windows键+R键打开运行，输入CMD回车打开终端窗口，然后在终端输入<code>ssh root@192.168.31.1</code> 回车，连接你的路由器(这是默小米路由器默认的IP地址，若是修改过网段就改为修改过的路由器地址)。<br>此时需要输入root的密码，自己去查，连接成功了应该是这样的：</p>
-<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0k3BG.jpg" alt="0k3BG.jpg" style="zoom:80%;" />
-
-<p>输入密码的时候页面不会显示输入的密码或***，确定自己输入正确之后按回车就可以，显示ARE U OK表示验证通过，让再输一次密码表示之前输入的密码不正确。</p>
-<h4 id="3-让路由器连接电脑的代理"><a href="#3-让路由器连接电脑的代理" class="headerlink" title="3.让路由器连接电脑的代理"></a>3.让路由器连接电脑的代理</h4><p>输入下面的命令让你的路由器连接上你的电脑的代理：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=本机电脑的IP:代理端口</span><br><span class="line">export https_proxy=本机电脑的IP:代理端口</span><br></pre></td></tr></table></figure>
-
-<p>(IP地址替换为操作的电脑的IP地址，端口替换为Clash中设置的<strong>Port</strong>或SSR中的<strong>本地端口</strong>，冒号是<strong>英文的冒号</strong>，两行可以一起复制，粘贴完成之后按一下回车，终端不会提醒你任何内容。)</p>
-<p>如果没有报错，此时路由器已经连接上代理了，输入Github上的MIXBOX一键安装地址试试：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -kfsSl https://raw.githubusercontent.com/monlor/mbfiles/master/install_github.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
-
-<p>粘贴上去之后的窗口内容应该是类似这样的：</p>
-<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0k6eX.jpg" alt="0k6eX.jpg" style="zoom:80%;" />
-
-
-
-
-
-<h4 id="4-开始安装MIXBOX"><a href="#4-开始安装MIXBOX" class="headerlink" title="4.开始安装MIXBOX"></a>4.开始安装MIXBOX</h4><p>上一步命令粘贴之后按回车。</p>
-<p>发现可以安装了：</p>
-<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kzwS.jpg" alt="0kzwS.jpg" style="zoom:80%;" />
-
-<p>输入安装路径<code>/etc</code>回车试试。<br>然后输入用户路径回车。<br>注意提示，如果是硬盘版，用户文件目录设置为<code>/userdisk/data</code><br>如果不是硬盘版就设置为<code>/extdisks/sda*</code></p>
-<p>*如果安装完成后输入MIXBOX打不开工具箱，一般是这个地址填错了。</p>
-<h4 id="5-安装完成"><a href="#5-安装完成" class="headerlink" title="5.安装完成"></a>5.安装完成</h4><p>嗯，安装成功，输入<code>mixbox</code>打开工具箱看看应用能不能加载：</p>
-<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kelV.jpg" alt="0kelV.jpg" style="zoom:80%;" />
-
-<p>没问题&#x3D;￣ω￣&#x3D;</p>
-<h4 id="6-安装一个Aria2试试看、"><a href="#6-安装一个Aria2试试看、" class="headerlink" title="6.安装一个Aria2试试看、"></a>6.安装一个Aria2试试看、</h4><img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kQ1b.jpg" alt="0kQ1b.jpg" style="zoom:80%;" />
-
-<p>没问题，就这样。</p>
-<h4 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h4><p>每次安装新软件都需要连接Clash的Allow LAN，弄好了记得把Allow LAN关掉。<br>路由器里全局SSR能解决这个问题，不过是不安全的，十分不推荐这样做。</p>
-<p>本文编辑和岁岁，感谢春里人帮忙解决这个遗留了大半年的问题。</p>
-]]></content>
-      <tags>
-        <tag>路由器</tag>
-        <tag>MIXBOX</tag>
+        <tag>小米</tag>
+        <tag>电视</tag>
+        <tag>广告</tag>
+        <tag>adb</tag>
+        <tag>很闲呐</tag>
+        <tag>瞎折腾</tag>
       </tags>
   </entry>
 </search>
