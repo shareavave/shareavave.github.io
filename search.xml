@@ -1,58 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>一篇去除小米电视广告的通用教程</title>
-    <url>/2022/01/20/%E4%B8%80%E7%AF%87%E5%8E%BB%E9%99%A4%E5%B0%8F%E7%B1%B3%E7%94%B5%E8%A7%86%E5%B9%BF%E5%91%8A%E7%9A%84%E9%80%9A%E7%94%A8%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p>简单记录一下过年在家精简家里的小米电视的思路，毕竟我是个外行，所以这个操作应该很适合像我一样的小白用户。<br>我希望达到的效果是删除开机广告、去除主页上所有的付费电影和综艺节目推广、删掉锁屏壁纸和不需要的视频软件、删掉所有需要开会员的功能和内容。</p>
-<p><escape><span id="more"></span></escape></p>
-<p>而作为一个电视，我又希望它能简单的观看所有的电视频道、能看我想看的电影和安装我所需要的APP、它还应该能不受限制且没有广告的投屏而且让所有系统功能和接口能正常使用。<br>所以我的想法是这样：删掉小米系统自带的桌面，删掉所有视频软件和广告软件以及广告插件，保留系统自己的投屏和跨屏功能并删掉投屏软件然后用哔哩哔哩投屏代替(因为我反正都要装哔哩哔哩)，然后安装一个当贝播放器播放电脑和WebDAV里的电影，用emby for TV观看热门和并不稀缺的电影和电视剧，安装一个并夕夕买的两块钱学习版直播软件收电视台节目。嗯，这就是一个电视应该有的所有功能。</p>
-<p>（本来应该有许多截图的，但是我还不会用图床功能，所以等之后再补截图。）</p>
-<h4 id="开篇提要"><a href="#开篇提要" class="headerlink" title="开篇提要"></a>开篇提要</h4><p>用的是很简单的安卓adb命令行操作，因为许多像我这样的普通用户可能不会安装adb之类的工具，一边看教程一边找文件和驱动也比较繁琐，而且配置环境和变量之类的操作实在是很复杂。于是我们去看了下教程，然后做成了附件的压缩包，其他人只要下载解压然后打开解压目录就能用了。</p>
-<p>理论上常见的小米电视和红米电视都能用，需要安卓5.0以上的安卓版本，比如小米电视4全系列、红米电视A系列、MAX系列和X系列都符合要求，小米盒子应该也可以。</p>
-<p>思路是这样的：<br>当然要删掉小米电视自带的桌面，推荐太多了，眼花缭乱，没有重点，不仅长辈找不到自己想看的东西，我们自己也找不到，唾弃，并删掉。<br>删掉桌面之后安装一个简单明了的桌面APP，并把它设置为默认。<br>这个新桌面应该要<em>足够简单，操作逻辑要符合思维惯性，学习成本要尽可能的低，并且要有一定程度上的自定义性，功能也不能有短板，最重要的是，颜值要足够高。</em>几番筛选，Emotn UI是唯一符合要求的桌面。</p>
-<p>删掉桌面之后顺便删掉不必要的播放器和组件，我自己是不看，但是如果你喜欢看优酷爱奇艺之类的也可以自己安装一个，安装好了之后和手机一样在电视上点击对应的图标启动即可，它们不会在主页上推荐内容，也没必要在不用它们的时候偷偷启动。</p>
-<p><strong>要有可恢复性：</strong>如果没操作好或者以后需要送修之类的情况，能很方便的恢复到小米系统本身的样子，而不需要繁琐的刷机操作。<br>如果你不喜欢删减之后的结果，只需要在<strong>“设置-关于-还原”</strong>中还原电视系统的设置并重启电视即可。</p>
-<hr>
-<p>正文开始↓</p>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1.让电视和操作的电脑处于同一个路由器的网络下，不能跨路由器或连接桥接路由器和信号放大器。不限制连接方式，WiFi或者有线网络都可以，但是避免出错，尽量别同时使用全局代理。</p>
-<p>2.确保电视的Android版本是5.0或者以上，这个很重要，因为Emotn UI只能安装在5.0+的系统上，如果删除了旧的桌面而Emotn UI却没安装成功，会导致不能顺利开机。</p>
-<p>3.将电视的MIUI TV版本升级到最新版，打开<strong>“小米电视设置”</strong>，点击<strong>“关于”</strong>，然后点一下<strong>“MIUI TV版本”</strong>看是否有更新，顺便把小面的<strong>“智能更新”</strong>设置为<strong>“关闭”</strong>。</p>
-<p>4.回到<strong>“设置”</strong>的主页，点击第一个看着像WiFi的图标，点进去之后点击<strong>“无线网络”</strong>，点击你所连接的WiFi，然后记录下WiFi中的<strong>“IP地址”</strong>一栏的地址，它们通常是<code>192.168.x.xxx</code>这样的结构，记住它。</p>
-<h4 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h4><h5 id="1-打开开发者模式："><a href="#1-打开开发者模式：" class="headerlink" title="1.打开开发者模式："></a>1.打开开发者模式：</h5><p>打开电视的开发者模式，按遥控器上的房子键回到主页，然后选择电视的<strong>“小米电视设置-关于”</strong>，光标移动到<strong>“设备型号   MITV”</strong>上，然后连续按6次遥控的OK键，屏幕上会出现提示：<strong>“您已处于开发者模式……”</strong>。<br>回到<strong>“设置”</strong>的首页，选择<strong>“账号与安全”</strong>，在<strong>“安全”</strong>分支中，将<strong>“安装未知来源的应用”</strong>设置为<strong>“允许”</strong>，然后将<strong>“ADB调试”</strong>也设置为<strong>“允许”</strong>。</p>
-<h5 id="2-连接电视："><a href="#2-连接电视：" class="headerlink" title="2.连接电视："></a>2.连接电视：</h5><p>在电脑上解压附件中的压缩文件，注意是右键点击文件-解压到…，而不能直接双击打开它。</p>
-<p>打开解压之后的文件夹，它的文件结构应该是这样的：</p>
-<blockquote>
-<p>说明.txt<br>双击运行这个.bat<br>EmotnUI.apk<br>fastboot.exe<br>AdbWinUsbApi.dll<br>AdbWinApi.dll<br>adb.exe</p>
-</blockquote>
-<p>双击.bat文件打开，窗口上会提示你按一下回车，然后输入刚才记下来的电视IP地址，回车。</p>
-<p><strong>此时将目光转向电视机！</strong><br>电视会弹出一个选择 <strong>“是&#x2F;否”或“允许&#x2F;拒绝”</strong>的弹窗，此时务必选择<strong>“是”或者“允许”</strong>。<br>（误操作了也没关系，脚本会一直重复尝试连接，所以电视过会儿会再次弹出来，你也可以关闭窗口重新打开。</p>
-<p>然后就等脚本跑完，最后显示<code>“好了，完成了。”</code>，就说明成功了。</p>
-<p>此时你会看到电视上的页面变了，表示桌面已经安装完成。</p>
-<h5 id="3-其它操作"><a href="#3-其它操作" class="headerlink" title="3.其它操作"></a>3.其它操作</h5><p>其实直到上面为止就操作好了，但是你可能想安装诸如腾讯视频、爱奇艺、哔哩哔哩、优酷、快手、抖音等别的应用程序，此时有三个选择：</p>
-<p>1.直接去对应软件的官网下载安装包，然后拷贝到U盘里，把U盘插上电视，手动安装。</p>
-<p>2.安装一个当贝助手，然后去当贝助手里安装你想要的软件，这也是可行的。</p>
-<p>3.比较推荐的操作是将你想要安装的软件下载到电脑里，然后在刚才解压的<code>XiaomiTV-litle</code>这个文件夹中按住<strong>shift键</strong>并<strong>在空白的地方</strong>单击鼠标<strong>左键</strong>，在弹出的选项框中选择<strong>“在Windows终端 中打开”</strong>。然后输入<strong>adb conncet 你的电视IP</strong>，回车。</p>
-<p>屏幕上会提示：able to <em>connected</em> to 192.168.x.xxx ，表示连接上了。</p>
-<p>此时输入<code>adb install空格</code>，然后用鼠标将你要安装的apk文件拖到这排字的后面，它会变成一个路径，然后按回车，系统就会开始远程安装。</p>
-<p>此时它会显示一个速度的文本，类似于这样：</p>
-<p><code>xxx x file pushed. x MB/s (xxx bytes in x.xxx s)pkg: /data/local/tmp/xxx.apk</code></p>
-<p>最后会显示一个<strong>“Success”</strong>，表示安装完成，此时可以输入adb install空格，拖入下一个要安装的apk重复操作。</p>
-<p><em>（注意：所有需要的工具都在这个文件夹里，所以只能在这个文件夹中开始操作。</em><br>说得比较复杂，其实就是输入adb install 然后把安装包拖进窗口里然后回车，简单的两步。</p>
-<hr>
-<h4 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h4><p>这个脚本本身是当贝的官方或水军写的，当贝似乎在想方设法扩张自己的市场占有，居然为每一个电视和电视盒子写了“将系统桌面替换成当贝桌面”的教程。<br>但我个人感觉当贝桌面并不好用，完成度虽说足够高，但颜值算不上精雕细琢，而且许多功能有会员限制，桌面本身有广告和推广，推广的节目也需要开会员或付费。当贝桌面的版本错综复杂，强制升级、功能付费、关注微信等槽点也很多。但如果你确实喜欢当贝桌面，去当贝官网下载桌面替换掉EmotnUI.apk，然后再执行脚本即可。<br>当贝这些年为电视和机顶盒行业做的改变我是一路看过来的，虽说由于本身的市场属性，推广和盈利目的操作十分明显，但是当贝确实很大程度上改变了国内电视应用的氛围和环境，而且当贝播放器和当贝应用商店确实功能全面，我不吝表扬。</p>
-<p>所以我还是把他当贝桌面的文件给替换掉了，觉得Emotn UI符合要求些，这个脚本所用到的所有功能都是adb官方文档中的功能，也不算是侵权吧。<br>而且当贝写的精简列表太过极端，删减掉了许多系统互相关联的功能和硬件接口调用的功能，这导致电视的设置页面读不到对应的信息，从而变得卡顿和闪退。<br>相比之下本文中的文件的删减则温和许多，保证了设置页面的流程操作，所有按钮都可以点击，并且依然能识别HDMI和USB的接口变动。</p>
-<p>除了系统桌面，下面是精简的其它软件列表：</p>
-<blockquote>
-<p>com.xiaomi.mitv.payment<br>com.xiaomi.mitv.pay<br>com.xiaomi.mitv.tvpush.tvpushservice<br>com.jiajia.yundonghui.mitv<br>com.mipay.wallet.tv<br>com.xiaomi.mitv.appstore<br>com.xiaomi.milink.udt<br>com.mi.miplay.mitvupnpsink<br>com.mi.umifrontend<br>com.xiaomi.mitv.shop<br>com.duokan.airkan.tvbox<br>com.mi.umi<br>com.xiaomi.mitv.advertis<br>com.ktcp.tvvideo<br>com.miui.systemAdSolution<br>com.pptv.tvsports.preinstall<br>com.duokan.videodaily<br>com.pplive.atv<br>com.xiaomi.mitv.advertise</p>
-</blockquote>
-<p>以上。</p>
-<p>文章中提到的文件在：<a href="https://pan.baidu.com/s/11Gfr2svD5AV6j4wiSPZEDg?pwd=dusx">这里</a>  提取码：dusx</p>
-]]></content>
-      <tags>
-        <tag>小米,电视,广告,adb,命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>初来乍到</title>
     <url>/2021/04/13/%E5%88%9D%E6%9D%A5%E4%B9%8D%E5%88%B0/</url>
     <content><![CDATA[<p>断断续续折腾了几天，博客终于上线使用了，以后便安心码字。<br>存在的问题还比较多，慢慢想办法解决。</p>
@@ -97,7 +45,7 @@
 <li><p>hexo g -d的时候也许会报错，大概率是授权文件不正确导致的，可以先输入一次授权信息：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;邮箱&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>输入ssh <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;</a>可以测试与github的连接性，挂个代理会更快一些，但是代理的配置可能不主动让终端走代理，这时可以把代理设置为全局，而不是分流。</p>
+<li><p>输入ssh <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#x6d;">&#103;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#x6d;</a>可以测试与github的连接性，挂个代理会更快一些，但是代理的配置可能不主动让终端走代理，这时可以把代理设置为全局，而不是分流。</p>
 </li>
 <li><p>每个参数的冒号是英文的，冒号后面务必要加一个空格，不然生成页面会报错。</p>
 </li>
@@ -158,6 +106,128 @@
         <tag>碎碎念</tag>
         <tag>日常</tag>
         <tag>往事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>精简一下小米电视的桌面和广告</title>
+    <url>/2022/01/20/%E7%B2%BE%E7%AE%80%E4%B8%80%E4%B8%8B%E5%B0%8F%E7%B1%B3%E7%94%B5%E8%A7%86%E7%9A%84%E6%A1%8C%E9%9D%A2%E5%92%8C%E5%B9%BF%E5%91%8A/</url>
+    <content><![CDATA[<p>简单记录一下过年在家精简家里的小米电视的思路和操作，毕竟我是个外行，所以这个操作应该很适合像我一样的小白用户。</p>
+<p><escape><span id="more"></span></escape></p>
+<p>而作为一个电视，我希望它能简单的观看所有的电视频道、能看我想看的电影和安装我所需要的APP、它还应该能不受限制且没有广告的投屏而且让所有系统功能和接口能正常使用。<br>所以想法是这样：删掉小米系统自带的桌面，删掉所有视频软件和广告软件以及广告插件，保留系统自己的投屏和跨屏功能并删掉投屏软件然后用哔哩哔哩投屏代替(因为我反正都要装哔哩哔哩)，然后安装一个当贝播放器播放电脑和WebDAV里的电影，用emby for TV观看热门和并不稀缺的电影和电视剧，安装一个并夕夕买的两块钱学习版直播软件收电视台节目。嗯，这就是一个电视应该有的所有功能。</p>
+<p>（本来应该有许多截图的，但是我还不会用图床功能，所以等之后再补截图。）</p>
+<h4 id="开篇提要"><a href="#开篇提要" class="headerlink" title="开篇提要"></a>开篇提要</h4><p>用的是很简单的安卓adb命令行操作，因为许多像我这样的普通用户可能不会安装adb之类的工具，一边看教程一边找文件和驱动也比较繁琐，而且配置环境和变量之类的操作实在是很复杂。于是我们去看了下教程，然后做成了附件的压缩包，其他人只要下载解压然后打开解压目录就能用了。<br>当然要删掉小米电视自带的桌面，推荐太多了，眼花缭乱，没有重点，不仅长辈找不到自己想看的东西，我们自己也找不到，烦。<br>删掉桌面之后安装一个简单明了的桌面APP，并把它设置为默认。(几番筛选，Emotn UI是唯一符合要求的桌面</p>
+<p>删掉桌面之后顺便删掉不必要的播放器和组件，我自己是不看，但是如果你喜欢看优酷爱奇艺之类的也可以自己安装一个，安装好了之后和手机一样在电视上点击对应的图标启动即可，它们不会在主页上推荐内容，也不会在不用它们的时候偷偷启动。</p>
+<p><strong>要有可恢复性：</strong>如果没操作好或者以后需要送修之类的情况，能很方便的恢复到小米系统本身的样子，而不需要繁琐的刷机操作。<br>如果你不喜欢删减之后的结果，只需要在<strong>“设置-关于-还原”</strong>中还原电视系统的设置并重启电视即可。</p>
+<hr>
+<p>正文开始↓</p>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1.让电视和操作的电脑处于同一个路由器的网络下，不能跨路由器或连接桥接路由器和信号放大器。不限制连接方式，WiFi或者有线网络都可以。</p>
+<p>2.确保电视的Android版本是5.0或者以上，因为Emotn UI只能安装在5.0+的系统上，如果删除了旧的桌面而Emotn UI却没安装成功，会导致不能顺利开机。</p>
+<p>3.将电视的MIUI TV版本升级到最新版，打开<strong>“小米电视设置”</strong>，点击<strong>“关于”</strong>，然后点一下<strong>“MIUI TV版本”</strong>看是否有更新，顺便把下面的<strong>“智能更新”</strong>设置为<strong>“关闭”</strong>。</p>
+<p>4.回到<strong>“设置”</strong>的主页，点击第一个看着像WiFi的图标，点进去之后点击<strong>“无线网络”</strong>，点击你所连接的WiFi，然后记录下WiFi中的<strong>“IP地址”</strong>一栏的地址，它们通常是<code>192.168.x.xxx</code>这样的结构，记住它。</p>
+<h4 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h4><h5 id="1-打开开发者模式："><a href="#1-打开开发者模式：" class="headerlink" title="1.打开开发者模式："></a>1.打开开发者模式：</h5><p>打开电视的开发者模式，按遥控器上的房子键回到主页，然后选择电视的<strong>“小米电视设置-关于”</strong>，光标移动到<strong>“设备型号   MITV”</strong>上，然后连续按6次遥控的OK键，屏幕上会出现提示：<strong>“您已处于开发者模式……”</strong>。<br>回到<strong>“设置”</strong>的首页，选择<strong>“账号与安全”</strong>，在<strong>“安全”</strong>分支中，将<strong>“安装未知来源的应用”</strong>设置为<strong>“允许”</strong>，然后将<strong>“ADB调试”</strong>也设置为<strong>“允许”</strong>。</p>
+<h5 id="2-连接电视："><a href="#2-连接电视：" class="headerlink" title="2.连接电视："></a>2.连接电视：</h5><p>在电脑上解压附件中的压缩文件，注意是右键点击文件-解压到…，而不能直接双击打开它。</p>
+<p>打开解压之后的文件夹，它的文件结构应该是这样的：</p>
+<blockquote>
+<p>说明.txt<br>双击运行这个.bat<br>EmotnUI.apk<br>fastboot.exe<br>AdbWinUsbApi.dll<br>AdbWinApi.dll<br>adb.exe</p>
+</blockquote>
+<p>双击.bat文件打开，窗口上会提示你按一下回车，然后输入刚才记下来的电视IP地址，回车。</p>
+<p><strong>此时将目光转向电视机：</strong><br>电视会弹出一个选择 <strong>“是&#x2F;否”或“允许&#x2F;拒绝”</strong>的弹窗，此时务必选择<strong>“是”或者“允许”</strong>。<br>（误操作了也没关系，脚本会一直重复尝试连接，所以电视过会儿会再次弹出来。</p>
+<p>然后就等脚本跑完，最后显示<code>“好了，完成了。”</code>，就说明成功了。</p>
+<p>此时你会看到电视上的页面变了，表示桌面已经安装完成。</p>
+<h4 id="3-补充一下"><a href="#3-补充一下" class="headerlink" title="3.补充一下"></a>3.补充一下</h4><p>其实直到上面为止就操作好了，但是你可能想安装诸如腾讯视频、爱奇艺、哔哩哔哩、优酷、快手、抖音等别的应用程序，此时有三个选择：</p>
+<p>1.直接去对应软件的官网下载安装包，然后拷贝到U盘里，把U盘插上电视，手动安装。</p>
+<p>2.安装一个当贝助手，然后去当贝助手里安装你想要的软件，这也是可行的。</p>
+<p>3.终端安装。</p>
+<blockquote>
+<p>将你想要安装的软件下载到电脑里，然后在刚才解压的<code>XiaomiTV-litle</code>这个文件夹中按住<strong>shift键</strong>并<strong>在空白的地方</strong>单击鼠标<strong>左键</strong>，在弹出的选项框中选择<strong>“在Windows终端 中打开”</strong>。然后输入<strong>adb conncet 你的电视IP</strong>，回车。</p>
+<p>屏幕上会提示：able to <em>connected</em> to 192.168.x.xxx ，表示连接上了。</p>
+<p>此时输入<code>adb install空格</code>，然后用鼠标将你要安装的apk文件拖到这排字的后面，它会变成一个路径，然后按回车，系统就会开始远程安装。</p>
+<p>此时它会显示一个速度的文本，类似于这样：</p>
+<p><code>xxx x file pushed. x MB/s (xxx bytes in x.xxx s)pkg: /data/local/tmp/xxx.apk</code></p>
+<p>最后会显示一个<strong>“Success”</strong>，表示安装完成，此时可以输入adb install空格，拖入下一个要安装的apk重复操作。</p>
+<p><em>（注意：所有需要的工具都在这个文件夹里，所以只能在这个文件夹中开始操作。</em><br>说得比较复杂，其实就是输入adb install 然后把安装包拖进窗口里然后回车，简单的两步。</p>
+</blockquote>
+<hr>
+<h4 id="4尾巴"><a href="#4尾巴" class="headerlink" title="4尾巴"></a>4尾巴</h4><p>这个脚本本身是当贝的官方或水军写的，当贝似乎在想方设法扩张自己的市场占有，居然为每一个电视和电视盒子写了“将系统桌面替换成当贝桌面”的教程。<br>但我感觉当贝桌面并不好用，完成度虽说足够高，但颜值算不上精雕细琢，而且许多功能有会员限制，桌面本身有广告和推广。但如果你确实喜欢当贝桌面，去当贝官网下载桌面替换掉EmotnUI.apk，然后再执行脚本即可。</p>
+<p>这个脚本所用到的所有功能都是adb官方文档中的功能，也不算是侵权吧。<br>而且当贝写的精简列表太过极端，删减掉了许多系统互相关联的功能和硬件接口调用的功能，导致电视的设置页面读不到对应的信息，变得卡顿和闪退。<br>相比之下本文中的文件的删减则温和些，保证了设置页面的流程操作，所有按钮都可以点击，并且依然能识别HDMI和USB的接口变动。</p>
+<p>除了系统桌面，下面是精简的其它软件列表：</p>
+<blockquote>
+<p>com.xiaomi.mitv.payment<br>com.xiaomi.mitv.pay<br>com.xiaomi.mitv.tvpush.tvpushservice<br>com.jiajia.yundonghui.mitv<br>com.mipay.wallet.tv<br>com.xiaomi.mitv.appstore<br>com.xiaomi.milink.udt<br>com.mi.miplay.mitvupnpsink<br>com.mi.umifrontend<br>com.xiaomi.mitv.shop<br>com.duokan.airkan.tvbox<br>com.mi.umi<br>com.xiaomi.mitv.advertis<br>com.ktcp.tvvideo<br>com.miui.systemAdSolution<br>com.pptv.tvsports.preinstall<br>com.duokan.videodaily<br>com.pplive.atv<br>com.xiaomi.mitv.advertise</p>
+</blockquote>
+<p>以上。</p>
+<p>文章中提到的文件在：<a href="https://pan.baidu.com/s/11Gfr2svD5AV6j4wiSPZEDg?pwd=dusx">这里</a>  提取码：dusx</p>
+]]></content>
+      <tags>
+        <tag>电视,广告,adb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022年了，应该怎么安装MIXBOX呢</title>
+    <url>/2022/03/27/2022%E5%B9%B4%E4%BA%86%EF%BC%8C%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%AE%89%E8%A3%85MIXBOX%E5%91%A2/</url>
+    <content><![CDATA[<p>一算发现家里的路由器明年就十岁了，某居然还在不温不冷的用着，嗯哼，某果然是一个恋旧的人。</p>
+<p><escape><span id="more"></span></escape></p>
+<p>之前wingyue为一系列的路由器制作的MIXBOX工具箱功能全面且安装简单，深得人心，对于新人来说有一个自动安装软件并部署的工具箱感觉十分友好，MIXBOX的项目地址在<a href="https://github.com/wingyue/mixbox">这里</a>，原文说得蛮详细。</p>
+<p>但是随着Monlor.coding.net和jsdelivr的域名连不上了，导致这个工具不能安装，github也由于各种原因路由器连不上，让这个工具箱安装起来很麻烦了。</p>
+<p>某天深夜里，春民们为路由器连接不上Github的问题提供了简单的结局思路：</p>
+<h3 id="简单说来："><a href="#简单说来：" class="headerlink" title="简单说来："></a>简单说来：</h3><p>是让电脑的代理软件开启<strong>LAN局域网代理共享</strong>功能，然后让路由器连接电脑的代理，这就让路由器能愉快用代理访问Github了：</p>
+<p>1.在电脑中利用Clash或SSR开启局域网代理，勾选Clash的“Allow LAN”功能或开启SSR的“允许来自局域网的访问”功能。<br>2.在已经连接路由器的SSH上输入下面的命令让路由器连接电脑的代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=本机电脑的IP:代理端口</span><br><span class="line">export https_proxy=本机电脑的IP:代理端口</span><br></pre></td></tr></table></figure>
+
+<p>然后输入Github源的一键安装命令即可正常安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -kfsSl https://raw.githubusercontent.com/monlor/mbfiles/master/install_github.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>完成。</p>
+<hr>
+<h3 id="展开说说："><a href="#展开说说：" class="headerlink" title="展开说说："></a>展开说说：</h3><p>可能有像我一样的新人没看明白具体怎么操作，于是展开图文说说具体怎么操作，顺便也测试一下借来的图床速度如何。</p>
+<h4 id="0-开始之前需要准备："><a href="#0-开始之前需要准备：" class="headerlink" title="0.开始之前需要准备："></a>0.开始之前需要准备：</h4><ol>
+<li>一台电脑，Windows或iMac都可。</li>
+<li>一个梯子软件，SSR或Clash都行，推荐Clash。</li>
+<li>一个能用的梯子节点。</li>
+<li>一个已经开启SSH，或曾经成功安装过MIXBOX的路由器。</li>
+</ol>
+<p>具体操作如下：</p>
+<h4 id="1-在电脑上打开代理"><a href="#1-在电脑上打开代理" class="headerlink" title="1.在电脑上打开代理"></a>1.在电脑上打开代理</h4><p>本文以Clash举例，打开Clash，先确保你的电脑能正常访问<a href="http://www.google.com,然后在clash的控制面板上的general选项卡中勾选/">www.google.com，然后在Clash的控制面板上的General选项卡中勾选</a> Allow LAN。如图：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kagq.jpg" alt="0kagq.jpg" style="zoom:80%;" />
+
+<p>勾选过后能看到页面上显示电脑的IP地址，比如我的显示的就是<strong>“192.168.31.170 以太网”</strong>，如果没看清可以把鼠标移动到<strong>选项开关</strong>那一行，便会持续显示IP。</p>
+<p>如果是用的SSR，则 <strong>右键点击纸飞机图标 - 选项设置… - 本地代理 - 勾选“允许来自局域网的连接”</strong>并记住对应的<strong>本地端口</strong>即可。</p>
+<h4 id="2-用命令行工具连接路由器"><a href="#2-用命令行工具连接路由器" class="headerlink" title="2.用命令行工具连接路由器"></a>2.用命令行工具连接路由器</h4><p>打开SSH工具，如果有自己喜欢就用喜欢的工具，若是没有喜欢的就与本文一样用Windows自带的终端：Windows键+R键打开运行，输入CMD回车打开终端窗口，然后在终端输入<code>ssh root@192.168.31.1</code> 回车，连接你的路由器(这是默小米路由器默认的IP地址，若是修改过网段就改为修改过的路由器地址)。<br>此时需要输入root的密码，自己去查，连接成功了应该是这样的：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0k3BG.jpg" alt="0k3BG.jpg" style="zoom:80%;" />
+
+<p>输入密码的时候页面不会显示输入的密码或***，确定自己输入正确之后按回车就可以，显示ARE U OK表示验证通过，让再输一次密码表示之前输入的密码不正确。</p>
+<h4 id="3-让路由器连接电脑的代理"><a href="#3-让路由器连接电脑的代理" class="headerlink" title="3.让路由器连接电脑的代理"></a>3.让路由器连接电脑的代理</h4><p>输入下面的命令让你的路由器连接上你的电脑的代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=本机电脑的IP:代理端口</span><br><span class="line">export https_proxy=本机电脑的IP:代理端口</span><br></pre></td></tr></table></figure>
+
+<p>(IP地址替换为操作的电脑的IP地址，端口替换为Clash中设置的<strong>Port</strong>或SSR中的<strong>本地端口</strong>，冒号是<strong>英文的冒号</strong>，两行可以一起复制，粘贴完成之后按一下回车，终端不会提醒你任何内容。)</p>
+<p>如果没有报错，此时路由器已经连接上代理了，输入Github上的MIXBOX一键安装地址试试：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -kfsSl https://raw.githubusercontent.com/monlor/mbfiles/master/install_github.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>粘贴上去之后的窗口内容应该是类似这样的：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0k6eX.jpg" alt="0k6eX.jpg" style="zoom:80%;" />
+
+
+
+
+
+<h4 id="4-开始安装MIXBOX"><a href="#4-开始安装MIXBOX" class="headerlink" title="4.开始安装MIXBOX"></a>4.开始安装MIXBOX</h4><p>上一步命令粘贴之后按回车。</p>
+<p>发现可以安装了：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kzwS.jpg" alt="0kzwS.jpg" style="zoom:80%;" />
+
+<p>输入安装路径<code>/etc</code>回车试试。<br>然后输入用户路径回车。<br>注意提示，如果是硬盘版，用户文件目录设置为<code>/userdisk/data</code><br>如果不是硬盘版就设置为<code>/extdisks/sda*</code></p>
+<p>*如果安装完成后输入MIXBOX打不开工具箱，一般是这个地址填错了。</p>
+<h4 id="5-安装完成"><a href="#5-安装完成" class="headerlink" title="5.安装完成"></a>5.安装完成</h4><p>嗯，安装成功，输入<code>mixbox</code>打开工具箱看看应用能不能加载：</p>
+<img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kelV.jpg" alt="0kelV.jpg" style="zoom:80%;" />
+
+<p>没问题&#x3D;￣ω￣&#x3D;</p>
+<h4 id="6-安装一个Aria2试试看、"><a href="#6-安装一个Aria2试试看、" class="headerlink" title="6.安装一个Aria2试试看、"></a>6.安装一个Aria2试试看、</h4><img src="https://static.hdcmct.org/cmct-images/2022/03/29/0kQ1b.jpg" alt="0kQ1b.jpg" style="zoom:80%;" />
+
+<p>没问题，就这样。</p>
+<h4 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h4><p>每次安装新软件都需要连接Clash的Allow LAN，弄好了记得把Allow LAN关掉。<br>路由器里全局SSR能解决这个问题，不过是不安全的，十分不推荐这样做。</p>
+<p>本文编辑和岁岁，感谢春里人帮忙解决这个遗留了大半年的问题。</p>
+]]></content>
+      <tags>
+        <tag>路由器</tag>
+        <tag>MIXBOX</tag>
       </tags>
   </entry>
 </search>
